@@ -1,10 +1,10 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import CategoryExpensesAction from './categoryExpenses.actions';
-import { CreateCategoryRequest } from './createCategory.request';
-import { PrismaService } from './prisma.service';
+import CategoryExpensesAction from './services/actions/categoryExpenses.actions';
+import { CreateCategoryRequest } from './services/requests/createCategory.request';
+import { PrismaService } from '../../prisma.service';
 
 @Controller('categories')
-export class AppController {
+export class CategoriesController {
   constructor(
     private readonly prismaService: PrismaService,
     private readonly categoryExpensesAction: CategoryExpensesAction,

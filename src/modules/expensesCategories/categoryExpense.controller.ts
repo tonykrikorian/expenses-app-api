@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Get } from '@nestjs/common';
-import { PrismaService } from './prisma.service';
+import { PrismaService } from '../../prisma.service';
 
 @Controller('category-expenses')
 export default class CategoryExpensesController {
