@@ -1,10 +1,14 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import CategoryExpensesAction from './categoryExpenses.actions';
 import { CreateCategoryRequest } from './createCategory.request';
 import { PrismaService } from './prisma.service';
 
 @Controller('categories')
 export class AppController {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(
+    private readonly prismaService: PrismaService,
+    private readonly categoryExpensesAction: CategoryExpensesAction,
+  ) {}
 
   @Get()
   public getCategories() {
@@ -18,6 +22,11 @@ export class AppController {
         name: body.name,
       },
     });
+    await this.categoryExpensesAction.calculateCategoryExpenses(
+      body.percentage,
+      2500000,
+      response.id,
+    );
     return {
       status: 'Ok',
       message: 'Categoria creada correctamente',

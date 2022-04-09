@@ -14,5 +14,16 @@ model Categories{
   id Int @id @default(autoincrement())
   name String
   createdAt DateTime @default(now()) 
+  CategoriesExpenses CategoryExpense[]
+}
 
+model CategoryExpense{
+id Int @id  @default(autoincrement())
+percentage Int @default(0)
+theoricalAmmount Int @default(0)
+realAmmount Int @default(0)
+balance Int @default(0)
+category Categories @relation(fields: [categoryId], references:[id] )
+categoryId Int @default(1)
+createdAt DateTime @default(now())
 }

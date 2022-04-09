@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE "CategoryExpense" ALTER COLUMN "percentage" SET DEFAULT 0,
+ALTER COLUMN "theoricalAmmount" SET DEFAULT 0,
+ALTER COLUMN "realAmmount" SET DEFAULT 0,
+ALTER COLUMN "balance" SET DEFAULT 0,
+ALTER COLUMN "categoryId" SET DEFAULT 1;
