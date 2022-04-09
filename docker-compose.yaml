@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Guitar100
+      POSTGRES_DB: prisma
+    ports:
+      - '5432:5432'
+    networks:
+      - default
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data'
+networks:
+  default: {}
+volumes:
+  pgdata: {}
